@@ -9,7 +9,8 @@ from api.pessoa_services import (
     service_pessoa_update,
     service_pessoa_delete,
     service_pessoa_get_all,
-    service_pessoa_get_by_id
+    service_pessoa_get_by_id,
+    service_pessoa_get_count
 )
 
 tag_pessoa = Tag(name='Cadastro de Pessoa',
@@ -100,3 +101,17 @@ def pessoa_get_all():
 )
 def pessoa_get_by_id(query: PessoaByIdSchema):
     return service_pessoa_get_by_id(query)
+
+
+#######################################################################
+# GET - Consulta quantidade de Pessoas
+#######################################################################
+
+
+@api.get(
+    '/pessoa/count',
+    summary='Consulta quantidade de pessoas cadastradas',
+    description='Rota para consulta de quantidade de pessoas cadastradas'
+)
+def pessoa_get_count():
+    return service_pessoa_get_count()

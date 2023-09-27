@@ -106,3 +106,24 @@ def service_pessoa_get_by_id(query):
             return {'err': 'Pessoa não encontrada'}, 404
 
         return serialize_pessoa(pessoa), 200
+
+
+#######################################################################
+# GET - Serviço para Consulta Quantidade de Pessoas
+#######################################################################
+
+
+def service_pessoa_get_count():
+    with Session(engine) as session:
+        pessoas = session.query(Pessoa).all()
+
+        # if not pessoas:
+        #     return {'err': 'Nenhuma pessoa encontrada'}, 404
+
+        quantidade = 0
+
+        for pessoa in pessoas:
+            quantidade += 1
+            print(quantidade)
+
+        return {'quantidade': quantidade}
