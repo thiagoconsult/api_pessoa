@@ -4,10 +4,10 @@ from api.pessoa_model import Pessoa
 
 
 class PessoaSchema(BaseModel):
-    nome: str = 'Thiago'
-    sobrenome: str = 'Lima Dyonisio'
+    nome: str = 'Nome'
+    sobrenome: str = 'Sobrenome'
     email: str = 'thiago.consult@gmail.com'
-    celular: str = '11971862030'
+    celular: str = '11999999999'
 
 
 class PessoaByIdSchema(BaseModel):
